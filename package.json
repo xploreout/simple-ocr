@@ -1,10 +1,10 @@
 {
   "name": "ocr-to-pdf",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "convert image to pdf using tesseract.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
