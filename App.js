@@ -28,13 +28,14 @@ app.get('/', (req, res) => {
 app.post('/upload', (req, res) => {
   const eng = 'eng';
   const chinese = 'chi_sim';
+  const dutch = 'nld'
 
   upload(req, res, (err) => {
     fs.readFile(`./uploads/${req.file.originalname}`, (err, data) => {
       if (err) return console.log(`Error on this: ${err}`);
 
       worker
-        .recognize(data, `${chinese}`, { tessjs_create_pdf: '1' })
+        .recognize(data, `${dutch}`, { tessjs_create_pdf: '1' })
         .progress((progress) => {
           console.log(progress);
         })
