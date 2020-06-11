@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="device-width, initial-scale=1.0" />
+    <meta http-equiv="X-VA-compatible" content="ie-edge" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Convert image to PDF</title>
+  </head>
+  
+  <body>
+    <div class="outer">
+      <h2>Convert image to pdf</h2>
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <select
+        class="form-control"
+        name="language"
+      >
+        <option value="first">Select language to convert</option>
+        <option value="chi-sim">Chinese (simplified)</option>
+        <option value="chi-tra    ">Chinese (traditional)</option>
+        <option value="eng">English</option>
+      </select>
+        <input type="file" name="canal" />
+        <button class="submitButton" type="submit">Convert</button>
+      </form>
+    </div>
+  
+  </body>
+</html>
