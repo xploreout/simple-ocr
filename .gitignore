@@ -1,4 +1,3 @@
-/node_modules
 uploads/*
 tesseract.js-ocr-result.pdf
 *.traineddata
