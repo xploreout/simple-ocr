@@ -17,7 +17,10 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage, limits: {fileSize: 1024 * 1024 * 5 } }).single('canal');
+const upload = multer({
+  storage,
+  limits: { fileSize: 1024 * 1024 * 5 },
+}).single('canal');
 
 app.set('view engine', 'ejs');
 
@@ -28,14 +31,14 @@ app.get('/', (req, res) => {
 app.post('/upload', (req, res) => {
   const eng = 'eng';
   const chinese = 'chi_sim';
-  const dutch = 'nld'
+  const dutch = 'nld';
 
   upload(req, res, (err) => {
     fs.readFile(`./uploads/${req.file.originalname}`, (err, data) => {
       if (err) return console.log(`Error on this: ${err}`);
 
       worker
-        .recognize(data, `${dutch}`, { tessjs_create_pdf: '1' })
+        .recognize(data, `${eng}`, { tessjs_create_pdf: '1' })
         .progress((progress) => {
           console.log(progress);
         })
@@ -52,6 +55,7 @@ app.get('/download', (req, res) => {
   const file = `${__dirname}/tesseract.js-ocr-result.pdf`;
   res.download(file);
 });
-const PORT = 5000 || process.env.PORT;
 
-app.listen(PORT, () => console.log(`Listening to port ${PORT}`));
+let port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Listening to port ${port}`));
