@@ -43,8 +43,8 @@ app.post('/upload', (req, res) => {
           console.log(progress);
         })
         .then((result) => {
-          // res.send(result.text);
-          res.redirect('/download');
+          res.send(result.text);
+          // res.redirect('/download');
         })
         .finally(() => worker.terminate());
     });
