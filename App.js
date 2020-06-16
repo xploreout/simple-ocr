@@ -10,10 +10,10 @@ app.use(express.static(`${__dirname}/public`));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './uploads');
+    cb(null, 'uploads');
   },
   filename: function (req, file, cb) {
-    cb(null, 'image.jpeg');
+    cb(null, file.originalname);
   },
 });
 
@@ -34,7 +34,7 @@ app.post('/upload', (req, res) => {
   const dutch = 'nld';
 
   upload(req, res, (err) => {
-    fs.readFile(`./uploads/image.jpeg`, (err, data) => {
+    fs.readFile(`uploads/${file.originalname}`, (err, data) => {
       if (err) return console.log(`Error on this: ${err}`);
 
       worker
