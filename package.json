@@ -4,7 +4,7 @@
   "description": "convert image to pdf using tesseract.js",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node App.js"
   },
   "keywords": [],
   "author": "",
