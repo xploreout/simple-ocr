@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
     cb(null, './uploads');
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    cb(null, 'image.jpeg');
   },
 });
 
@@ -34,7 +34,7 @@ app.post('/upload', (req, res) => {
   const dutch = 'nld';
 
   upload(req, res, (err) => {
-    fs.readFile(`./uploads/${req.file.originalname}`, (err, data) => {
+    fs.readFile(`./uploads/image.jpeg`, (err, data) => {
       if (err) return console.log(`Error on this: ${err}`);
 
       worker
